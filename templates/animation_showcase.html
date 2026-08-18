@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Ray | Portfolio Animation Showcase</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/animation_showcase.css' %}">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Background Glow Element -->
+        <div class="glow-background"></div>
+        
+        <!-- Portfolio Hero Section -->
+        <div class="portfolio-hero">
+            <!-- Decorative Lines -->
+            <div class="decorative-line line-top"></div>
+            <div class="decorative-line line-bottom"></div>
+            <div class="decorative-line line-left"></div>
+            <div class="decorative-line line-right"></div>
+
+            <!-- Counter / Name Animation -->
+            <div class="animation-wrapper">
+                <!-- Counter (0-100) -->
+                <div class="counter" id="counter">0</div>
+                
+                <!-- JISHNU Text (hidden initially, reveals after counter) -->
+                <div class="name-container" id="nameContainer">
+                    <span class="letter" data-letter="V">V</span>
+                    <span class="letter" data-letter="I">I</span>
+                    <span class="letter" data-letter="V">V</span>
+                    <span class="letter" data-letter="E">E</span>
+                    <span class="letter" data-letter="K">K</span>
+                    <span class="letter" data-letter=" "> </span>
+                    <span class="letter" data-letter="R">R</span>
+                    <span class="letter" data-letter="A">A</span>
+                    <span class="letter" data-letter="Y">Y</span>
+
+                </div>
+            </div>
+
+            <!-- Subtitle -->
+            <div class="subtitle" id="subtitle">
+                <p>Creative Developer & Designer</p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <a href="{% url 'home' %}#projects" class="btn btn-primary">View Work</a>
+                <a href="{% url 'home' %}#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <div class="portfolio-scroll-prompt" id="portfolioScrollPrompt">
+            <span>Scroll to view more</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+
+        <!-- Bottom Info -->
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/animation_showcase.js' %}"></script>
+</body>
+</html>

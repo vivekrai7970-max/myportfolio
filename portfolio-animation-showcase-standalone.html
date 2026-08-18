@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Animation Showcase</title>
+    <style>
+        /* ============================================
+           MODERN PORTFOLIO ANIMATION SHOWCASE
+           High-End Creative Designer Portfolio
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 50%, #0a0a0a 100%);
+            color: #e0e0e0;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* ============================================
+           FIXED HEADER
+           ============================================ */
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.7);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .header-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            animation: fadeInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .header-item.wrong {
+            color: #808080;
+            animation-delay: 0.1s;
+        }
+
+        .header-item.correct {
+            color: #ffffff;
+            animation-delay: 0.2s;
+        }
+
+        .header-item .icon {
+            font-size: 20px;
+            display: inline-block;
+        }
+
+        /* ============================================
+           MAIN CONTAINER & BACKGROUND
+           ============================================ */
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 80px 20px 20px;
+            overflow: hidden;
+        }
+
+        /* Cinematic Ambient Glow Background */
+        .glow-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(
+                circle,
+                rgba(255, 100, 60, 0.15) 0%,
+                rgba(255, 80, 40, 0.08) 25%,
+                rgba(255, 60, 20, 0.04) 50%,
+                transparent 70%
+            );
+            filter: blur(80px);
+            transform: translate(-50%, -50%);
+            animation: glowPulse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============================================
+           PORTFOLIO HERO SECTION
+           ============================================ */
+
+        .portfolio-hero {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ============================================
+           DECORATIVE LINES
+           ============================================ */
+
+        .decorative-line {
+            position: absolute;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 120, 60, 0.4),
+                transparent
+            );
+            opacity: 0;
+            animation: revealLine 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 1.5s;
+        }
+
+        .line-top {
+            width: 60px;
+            height: 1px;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .line-bottom {
+            width: 60px;
+            height: 1px;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .line-left {
+            width: 1px;
+            height: 60px;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(
+                180deg,
+                transparent,
+                rgba(255, 120, 60, 0.4),
+                transparent
+            );
+        }
+
+        .line-right {
+            width: 1px;
+            height: 60px;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(
+                180deg,
+                transparent,
+                rgba(255, 120, 60, 0.4),
+                transparent
+            );
+        }
+
+        /* ============================================
+           COUNTER & NAME ANIMATION
+           ============================================ */
+
+        .animation-wrapper {
+            position: relative;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 300px;
+        }
+
+        /* Counter (0 to 100) */
+        .counter {
+            font-size: 120px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(
+                135deg,
+                #ff7a60 0%,
+                #ff9a7b 50%,
+                #ffb8a0 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 120, 60, 0.3);
+            animation: slideOut 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s forwards;
+            will-change: transform, opacity;
+        }
+
+        /* JISHNU Name Letters */
+        .name-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.2s forwards;
+        }
+
+        .letter {
+            font-size: 120px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #ffffff;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            animation: revealLetter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            will-change: transform, opacity;
+        }
+
+        /* Staggered letter animation */
+        .letter[data-letter="J"] { animation-delay: 3.3s; }
+        .letter[data-letter="I"] { animation-delay: 3.4s; }
+        .letter[data-letter="S"] { animation-delay: 3.5s; }
+        .letter[data-letter="H"] { animation-delay: 3.6s; }
+        .letter[data-letter="N"] { animation-delay: 3.7s; }
+        .letter[data-letter="U"] { animation-delay: 3.8s; }
+
+        /* ============================================
+           SUBTITLE & CTA
+           ============================================ */
+
+        .subtitle {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4s forwards;
+        }
+
+        .subtitle p {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4.2s forwards;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 36px;
+            border: 1.5px solid rgba(255, 120, 60, 0.3);
+            background: rgba(255, 120, 60, 0.08);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 120, 60, 0.2),
+                transparent
+            );
+            transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(255, 120, 60, 0.15), rgba(255, 100, 60, 0.1));
+            border-color: rgba(255, 120, 60, 0.5);
+        }
+
+        .btn-primary:hover {
+            border-color: rgba(255, 120, 60, 0.8);
+            background: linear-gradient(135deg, rgba(255, 120, 60, 0.25), rgba(255, 100, 60, 0.2));
+            box-shadow: 0 0 20px rgba(255, 120, 60, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           BOTTOM INFO
+           ============================================ */
+
+        .bottom-info {
+            position: absolute;
+            bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4.4s forwards;
+        }
+
+        .scroll-hint {
+            font-size: 14px;
+            color: #808080;
+            letter-spacing: 0.5px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(1.2) translateY(-40px);
+            }
+        }
+
+        @keyframes revealLetter {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+                letter-spacing: -4px;
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                letter-spacing: 4px;
+            }
+        }
+
+        @keyframes revealLine {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                filter: blur(80px) brightness(1);
+                opacity: 0.6;
+            }
+            50% {
+                filter: blur(100px) brightness(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 768px) {
+            .fixed-header {
+                height: 60px;
+            }
+
+            .header-content {
+                gap: 40px;
+                font-size: 14px;
+            }
+
+            .header-item .icon {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 60px 20px 20px;
+            }
+
+            .portfolio-hero {
+                gap: 30px;
+                max-width: 90%;
+            }
+
+            .animation-wrapper {
+                height: 100px;
+            }
+
+            .counter,
+            .letter {
+                font-size: 80px;
+            }
+
+            .subtitle p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                gap: 12px;
+            }
+
+            .btn {
+                padding: 12px 28px;
+                font-size: 13px;
+            }
+
+            .decorative-line {
+                animation-delay: 1.2s;
+            }
+
+            .glow-background {
+                width: 500px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                gap: 20px;
+                flex-direction: column;
+            }
+
+            .portfolio-hero {
+                gap: 20px;
+            }
+
+            .animation-wrapper {
+                height: 80px;
+            }
+
+            .counter,
+            .letter {
+                font-size: 60px;
+            }
+
+            .subtitle p {
+                font-size: 14px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .glow-background {
+                width: 300px;
+                height: 300px;
+            }
+
+            .decorative-line {
+                display: none;
+            }
+        }
+
+        /* ============================================
+           PERFORMANCE OPTIMIZATION
+           ============================================ */
+
+        .counter,
+        .letter,
+        .name-container,
+        .glow-background,
+        .portfolio-hero {
+            will-change: transform, opacity;
+        }
+
+        /* GPU acceleration */
+        body {
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="fixed-header">
+        <div class="header-content">
+            <div class="header-item wrong">
+                <span class="icon">❌</span>
+                <span class="text">Portfolio</span>
+            </div>
+            <div class="header-item correct">
+                <span class="icon">✅</span>
+                <span class="text">Design Flex</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Background Glow Element -->
+        <div class="glow-background"></div>
+        
+        <!-- Portfolio Hero Section -->
+        <div class="portfolio-hero">
+            <!-- Decorative Lines -->
+            <div class="decorative-line line-top"></div>
+            <div class="decorative-line line-bottom"></div>
+            <div class="decorative-line line-left"></div>
+            <div class="decorative-line line-right"></div>
+
+            <!-- Counter / Name Animation -->
+            <div class="animation-wrapper">
+                <!-- Counter (0-100) -->
+                <div class="counter" id="counter">0</div>
+                
+                <!-- JISHNU Text (hidden initially, reveals after counter) -->
+                <div class="name-container" id="nameContainer">
+                    <span class="letter" data-letter="J">J</span>
+                    <span class="letter" data-letter="I">I</span>
+                    <span class="letter" data-letter="S">S</span>
+                    <span class="letter" data-letter="H">H</span>
+                    <span class="letter" data-letter="N">N</span>
+                    <span class="letter" data-letter="U">U</span>
+                </div>
+            </div>
+
+            <!-- Subtitle -->
+            <div class="subtitle" id="subtitle">
+                <p>Creative Developer & Designer</p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <a href="index.html#projects" class="btn btn-primary">View Work</a>
+                <a href="index.html#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <!-- Bottom Info -->
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // ============================================
+        // PORTFOLIO ANIMATION SHOWCASE - JAVASCRIPT
+        // Handles counter animation, text reveal, and interactions
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // ============================================
+            // COUNTER ANIMATION (0 to 100)
+            // ============================================
+            
+            const counterElement = document.getElementById('counter');
+            const nameContainer = document.getElementById('nameContainer');
+            const subtitle = document.getElementById('subtitle');
+            
+            // Animate counter from 0 to 100
+            function animateCounter() {
+                const duration = 3000; // 3 seconds (ease-out)
+                const startTime = Date.now();
+                
+                function update() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease-out cubic easing function for natural deceleration
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    
+                    // Calculate current number
+                    const currentNumber = Math.floor(easeProgress * 100);
+                    
+                    counterElement.textContent = currentNumber;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        // Counter complete - trigger name reveal
+                        counterElement.textContent = '100';
+                        setTimeout(() => {
+                            triggerNameReveal();
+                        }, 200);
+                    }
+                }
+                
+                requestAnimationFrame(update);
+            }
+            
+            // ============================================
+            // NAME REVEAL ANIMATION
+            // ============================================
+            
+            function triggerNameReveal() {
+                // The CSS animation handles the reveal via animation-delay
+                // This function is called when counter completes
+                console.log('✨ Counter complete - JISHNU name revealed');
+            }
+            
+            // ============================================
+            // BUTTON INTERACTIONS
+            // ============================================
+            
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                button.addEventListener('click', function(e) {
+                    // Ripple effect
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.style.position = 'absolute';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.width = '0';
+                    ripple.style.height = '0';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 120, 60, 0.5)';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.transform = 'translate(-50%, -50%)';
+                    
+                    this.appendChild(ripple);
+                    
+                    // Animate ripple
+                    ripple.animate([
+                        { width: '0', height: '0', opacity: 1 },
+                        { width: '300px', height: '300px', opacity: 0 }
+                    ], {
+                        duration: 600,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+            
+            // ============================================
+            // SCROLL INTERACTIONS
+            // ============================================
+            
+            window.addEventListener('scroll', function() {
+                const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+                const glowBg = document.querySelector('.glow-background');
+                
+                // Subtle glow movement on scroll
+                glowBg.style.transform = `translate(-50%, calc(-50% + ${scrollProgress * 30}px))`;
+            });
+            
+            // ============================================
+            // SMOOTH PAGE LOAD SEQUENCE
+            // ============================================
+            
+            // Wait for DOM to be fully ready
+            setTimeout(() => {
+                // Start counter animation after 500ms delay
+                animateCounter();
+            }, 500);
+            
+            // ============================================
+            // KEYBOARD SHORTCUT
+            // ============================================
+            
+            document.addEventListener('keydown', function(e) {
+                // Press 'R' to restart animation
+                if (e.key === 'r' || e.key === 'R') {
+                    location.reload();
+                }
+            });
+            
+            // ============================================
+            // PARALLAX EFFECT (Optional Enhancement)
+            // ============================================
+            
+            const heroSection = document.querySelector('.portfolio-hero');
+            
+            window.addEventListener('mousemove', function(e) {
+                if (!heroSection) return;
+                
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                const moveX = (x - 0.5) * 10;
+                const moveY = (y - 0.5) * 10;
+                
+                heroSection.style.transform = `perspective(1000px) rotateX(${moveY}deg) rotateY(${moveX}deg)`;
+            });
+            
+            window.addEventListener('mouseleave', function() {
+                if (heroSection) {
+                    heroSection.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                }
+            });
+            
+            // ============================================
+            // TOUCH SUPPORT FOR MOBILE
+            // ============================================
+            
+            let touchStartX = 0;
+            let touchStartY = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            });
+            
+            document.addEventListener('touchmove', function(e) {
+                if (!heroSection) return;
+                
+                const touchX = e.touches[0].clientX;
+                const touchY = e.touches[0].clientY;
+                
+                const diffX = (touchX - touchStartX) * 0.05;
+                const diffY = (touchY - touchStartY) * 0.05;
+                
+                heroSection.style.transform = `perspective(1000px) rotateX(${diffY}deg) rotateY(${diffX}deg)`;
+            });
+            
+            document.addEventListener('touchend', function() {
+                if (heroSection) {
+                    heroSection.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                }
+            });
+            
+            // ============================================
+            // CONSOLE MESSAGE
+            // ============================================
+            
+            console.log('%c🎨 Portfolio Animation Showcase', 'font-size: 20px; font-weight: bold; color: #ff7a60;');
+            console.log('%cPress "R" to restart the animation', 'font-size: 14px; color: #a0a0a0;');
+            console.log('%cHover over buttons for interactions', 'font-size: 14px; color: #a0a0a0;');
+        });
+    </script>
+</body>
+</html>

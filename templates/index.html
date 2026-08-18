@@ -1,0 +1,459 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="home" class="relative overflow-hidden pb-24 pt-12 lg:pb-32">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.1),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(100,100,120,0.06),_transparent_35%)]"></div>
+  <div class="absolute inset-x-0 top-0 h-full opacity-30">
+    <div class="pointer-events-none absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl"></div>
+  </div>
+  <div class="mx-auto relative max-w-7xl px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="relative overflow-hidden rounded-[24px] border border-primary/20 bg-cover bg-top bg-no-repeat shadow-glow min-h-[620px] hero-graphic animate-float" style="background-image: url('{% static "images/1772905982780.jpg" %}');">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-950/50 via-slate-950/80 to-slate-950/95"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.12),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(100,100,120,0.08),_transparent_40%)]"></div>
+        <div class="relative z-10 flex h-full flex-col justify-between px-8 py-10 sm:px-12 lg:px-14">
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-2 text-sm uppercase tracking-[0.32em] text-slate-200 shadow-glow backdrop-blur-xl animate-fade-up">
+              <span class="h-2 w-2 rounded-full bg-primary"></span>
+              Aspiring Software Developer
+            </span>
+            <div class="mt-10 max-w-3xl space-y-6 animate-fade-up delay-200">
+              <h1 class="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl leading-tight">Hi, I'm <span class="text-gradient">Vivek Ray</span></h1>
+              <p class="text-lg leading-8 text-slate-200">I build modern, responsive, and secure web applications with Django, Python, JavaScript and strong UI focus.</p>
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-3 animate-fade-up delay-400">
+            <div class="rounded-[20px] border border-primary/20 bg-primary/10 p-5 text-white backdrop-blur-xl">
+              <p class="text-3xl font-semibold">25+</p>
+              <p class="mt-2 text-sm text-slate-200">Projects</p>
+            </div>
+            <div class="rounded-[20px] border border-primary/20 bg-primary/10 p-5 text-white backdrop-blur-xl">
+              <p class="text-3xl font-semibold">2+</p>
+              <p class="mt-2 text-sm text-slate-200">Years</p>
+            </div>
+            <div class="rounded-[20px] border border-primary/20 bg-primary/10 p-5 text-white backdrop-blur-xl">
+              <p class="text-3xl font-semibold">100%</p>
+              <p class="mt-2 text-sm text-slate-200">Client Focus</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative mx-auto max-w-xl">
+        <div class="hero-card glass-card relative overflow-hidden rounded-[24px] border border-primary/20 bg-slate-950/80 p-8 shadow-glow backdrop-blur-xl animate-card">
+          <div class="space-y-8 text-slate-100">
+            <div class="rounded-[20px] border border-primary/15 bg-primary/8 p-6 shadow-sm">
+              <p class="text-xs uppercase tracking-[0.32em] text-slate-400">Profile Insight</p>
+              <h2 class="mt-4 text-3xl font-bold text-white">Crafting thoughtful web experiences</h2>
+              <p class="mt-4 text-slate-300">I combine elegant UI, reliable backend design, and notification workflows to deliver polished portfolio sites.</p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[18px] border border-primary/15 bg-primary/8 p-6">
+                <p class="text-lg font-semibold text-white">Django</p>
+                <p class="mt-2 text-sm text-slate-400">Full-stack web apps</p>
+              </div>
+              <div class="rounded-[18px] border border-primary/15 bg-primary/8 p-6">
+                <p class="text-lg font-semibold text-white">Frontend</p>
+                <p class="mt-2 text-sm text-slate-400">HTML, CSS, JS</p>
+              </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[18px] border border-primary/15 bg-primary/8 p-6">
+                <p class="text-lg font-semibold text-white">Database</p>
+                <p class="mt-2 text-sm text-slate-400">SQLite / MySQL / mongoDB</p>
+              </div>
+              <div class="rounded-[20px] border border-primary/15 bg-primary/8 p-6">
+                <p class="text-lg font-semibold text-white">Notifications</p>
+                <p class="mt-2 text-sm text-slate-400">Email + SMS</p>
+              </div>
+            </div>
+            <div class="rounded-[28px] border border-primary/15 bg-primary/8 p-6">
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Next goal</p>
+              <p class="mt-3 text-slate-300">Launch a production-ready Django portfolio with real-time messaging and contact delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="relative py-20 bg-slate-950/10">
+  <div class="absolute inset-0 bg-slate-950/20"></div>
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div data-aos="fade-right" class="relative rounded-[24px] border border-primary/15 bg-slate-950/70 p-10 shadow-glow backdrop-blur-xl">
+        <span class="section-label">About Me</span>
+        <h2 class="text-4xl font-bold text-white">Professional Summary</h2>
+        <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">Motivated and enthusiastic third-year B.Tech student with a strong interest in software development, web technologies, and problem-solving. Passionate about building practical applications and continuously learning new technologies.</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-[20px] border border-primary/15 bg-primary/8 p-6">
+            <p class="text-3xl font-semibold text-white">2+</p>
+            <p class="mt-2 text-sm text-slate-400">Major Projects</p>
+          </div>
+          <div class="rounded-[20px] border border-primary/15 bg-primary/8 p-6">
+            <p class="text-3xl font-semibold text-white">10+</p>
+            <p class="mt-2 text-sm text-slate-400">Technologies</p>
+          </div>
+        </div>
+      </div>
+      <div data-aos="fade-left" class="grid gap-4 sm:grid-cols-2">
+        <div class="rounded-[24px] border border-primary/15 bg-primary/8 p-8 text-center shadow-glow backdrop-blur-xl">
+          <p class="text-3xl font-semibold text-white">2028</p>
+          <p class="mt-2 text-sm text-slate-400">Expected Graduation</p>
+        </div>
+        <div data-aos="fade-left" class="rounded-[24px] border border-primary/15 bg-primary/8 p-8 text-center shadow-glow backdrop-blur-xl">
+          <p class="text-3xl font-semibold text-white">100%</p>
+          <p class="mt-2 text-sm text-slate-400">Dedication</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="py-20 bg-slate-950/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="space-y-6 text-center">
+      <span class="section-label">Education</span>
+      <h2 class="text-4xl font-bold text-white">Academic Journey</h2>
+      <p class="mx-auto max-w-2xl text-slate-400">A timeline of academic milestones shaping a driven software developer.</p>
+    </div>
+    <div class="mt-14 grid gap-6 lg:grid-cols-3">
+      <div data-aos="fade-up" class="timeline-card">
+        <span class="timeline-title">Bachelor of Technology</span>
+        <p class="font-semibold text-white">Computer Science & Engineering</p>
+        <p class="text-sm text-slate-400">Sandip University, Sijoul, Madhubani, Bihar</p>
+        <p class="mt-3 text-sm text-slate-200">Third Year · Expected Graduation 2028</p>
+      </div>
+      <div data-aos="fade-up" class="timeline-card">
+        <span class="timeline-title">Intermediate</span>
+        <p class="font-semibold text-white">Sima Kumari Inter College</p>
+        <p class="text-sm text-slate-400">Buxar</p>
+        <p class="mt-3 text-sm text-slate-200">Percentage: 58%</p>
+      </div>
+      <div data-aos="fade-up" class="timeline-card">
+        <span class="timeline-title">Matriculation</span>
+        <p class="font-semibold text-white">Utkramit Madhyamik Vidyalaya</p>
+        <p class="text-sm text-slate-400">Torni</p>
+        <p class="mt-3 text-sm text-slate-200">Percentage: 60%</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="space-y-6 text-center">
+      <span class="section-label">Technical Skills</span>
+      <h2 class="text-4xl font-bold text-white">Tools & Technologies</h2>
+      <p class="mx-auto max-w-2xl text-slate-400">A snapshot of the core languages, frameworks, databases, and tools that power modern web development.</p>
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      <div class="grid gap-4">
+        <div data-aos="fade-right" class="glass-card p-8">
+          <h3 class="mb-4 text-xl font-semibold text-white">Programming Languages</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="skill-header">
+                <span>Python</span>
+                <span>92%</span>
+              </div>
+              <div class="skill-progress"><div class="skill-fill" style="width:92%"></div></div>
+            </div>
+            <div>
+              <div class="skill-header">
+                <span>JavaScript</span>
+                <span>84%</span>
+              </div>
+              <div class="skill-progress"><div class="skill-fill bg-secondary" style="width:84%"></div></div>
+            </div>
+            <div>
+              <div class="skill-header">
+                <span>C</span>
+                <span>72%</span>
+              </div>
+              <div class="skill-progress"><div class="skill-fill bg-gradient-to-r from-cyan-400 to-blue-500" style="width:72%"></div></div>
+            </div>
+            <div>
+              <div class="skill-header">
+                <span>C++</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-progress"><div class="skill-fill bg-gradient-to-r from-purple-500 to-pink-500" style="width:70%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-right" class="glass-card p-8">
+          <h3 class="mb-4 text-xl font-semibold text-white">Frontend</h3>
+          <p class="text-slate-300">HTML5 · CSS3 · JavaScript · Tailwind CSS</p>
+        </div>
+        <div data-aos="fade-right" class="glass-card p-8">
+          <h3 class="mb-4 text-xl font-semibold text-white">Backend</h3>
+          <p class="text-slate-300">Django · Python · REST · Authentication</p>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <div data-aos="fade-left" class="glass-card p-8">
+          <h3 class="mb-4 text-xl font-semibold text-white">Database</h3>
+          <p class="text-slate-300">MySQL · SQLite  & mongoDB</p>
+        </div>
+        <div data-aos="fade-left" class="glass-card p-8">
+          <h3 class="mb-4 text-xl font-semibold text-white">Tools</h3>
+          <p class="text-slate-300">Git · VS Code · GitHub · Terminal</p>
+        </div>
+        <div data-aos="fade-left" class="glass-card p-8">
+          <h3 class="mb-4 text-xl font-semibold text-white">Operating System</h3>
+          <p class="text-slate-300">Windows</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="py-20 bg-slate-950/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="space-y-6 text-center">
+      <span class="section-label">Projects</span>
+      <h2 class="text-4xl font-bold text-white">Selected Work</h2>
+      <p class="mx-auto max-w-2xl text-slate-400">High-impact applications delivered with clean UX and modern Django architecture.</p>
+    </div>
+    <div class="mt-14 grid gap-6 lg:grid-cols-2">
+      <div data-aos="zoom-in" class="project-card">
+        <div class="project-header">
+          <p class="project-label">Sandip University ERP Management System</p>
+        </div>
+        <p class="mt-4 text-slate-300">Developed an ERP system for managing students and faculty records. Features include Google Authentication, Two-Step Verification, Student Management, Faculty Management, Responsive Dashboard and Secure Login.</p>
+        <div class="mt-5 flex flex-wrap gap-2 text-sm text-slate-400">
+          <span class="project-chip">Django</span>
+          <span class="project-chip">Python</span>
+          <span class="project-chip">MySQL</span>
+          <span class="project-chip">HTML</span>
+          <span class="project-chip">CSS</span>
+          <span class="project-chip">JavaScript</span>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://erp-sandip-university-1.onrender.com" target="_blank" rel="noopener noreferrer" class="project-button">Live Demo</a>
+          <a href="https://github.com/vivekrai7970-max" target="_blank" class="project-button project-button-alt">GitHub</a>
+          <a href="#" class="project-button project-button-alt">Case Study</a>
+        </div>
+      </div>
+      <div data-aos="zoom-in" class="project-card">
+        <div class="project-header">
+          <p class="project-label">Personal Portfolio Website</p>
+        </div>
+        <p class="mt-4 text-slate-300">Designed and developed a fully responsive portfolio website showcasing projects, skills, achievements, and contact details using Django and Tailwind CSS.</p>
+        <div class="mt-5 flex flex-wrap gap-2 text-sm text-slate-400">
+          <span class="project-chip">HTML</span>
+          <span class="project-chip">CSS</span>
+          <span class="project-chip">Python</span>
+          <span class="project-chip">Django</span>
+          <span class="project-chip">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="space-y-6 text-center">
+      <span class="section-label">Achievements</span>
+      <h2 class="text-4xl font-bold text-white">Career Highlights</h2>
+      <p class="mx-auto max-w-2xl text-slate-400">Notable milestones captured through hands-on experience and steady growth.</p>
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      <div data-aos="fade-up" class="glass-card p-8">
+        <h3 class="text-xl font-semibold text-white">Completed Internship</h3>
+        <p class="mt-3 text-slate-300">Worked on real-world application flow and collaborative development tasks.</p>
+      </div>
+      <div data-aos="fade-up" class="glass-card p-8">
+        <h3 class="text-xl font-semibold text-white">Project Management</h3>
+        <p class="mt-3 text-slate-300">Managed features, deadlines, and technical documentation for a university ERP.</p>
+      </div>
+      <div data-aos="fade-up" class="glass-card p-8">
+        <h3 class="text-xl font-semibold text-white">Workshops & Seminars</h3>
+        <p class="mt-3 text-slate-300">Participated in workshops and seminars to sharpen technical and soft skills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="py-20 bg-slate-950/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="space-y-6 text-center">
+      <span class="section-label">Certifications</span>
+      <h2 class="text-4xl font-bold text-white">Professional Certificates</h2>
+      <p class="mx-auto max-w-2xl text-slate-400">Validated expertise in programming, training, and practical internship experience.</p>
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      <div data-aos="fade-up" class="certificate-card">
+        <a href="{% static 'images/internship and training certificate.pdf' %}" target="_blank" rel="noopener noreferrer" class="block">
+          <h3 class="font-semibold text-white">Internship & Project letter</h3>
+          <p class="mt-3 text-slate-300">View the full certificate (PDF)</p>
+        </a>
+      </div>
+      <div data-aos="fade-up" class="certificate-card">
+        <a href="{% static 'images/industrial internship cirtificate.pdf' %}" target="_blank" rel="noopener noreferrer" class="block">
+          <h3 class="font-semibold text-white">Industrial Internship Certificate</h3>
+          <p class="mt-3 text-slate-300">View the full certificate (PDF)</p>
+        </a>
+      </div>
+      <div data-aos="fade-up" class="certificate-card">
+        <a href="{% static 'images/industrial training cirtificate.pdf' %}" target="_blank" rel="noopener noreferrer" class="block">
+          <h3 class="font-semibold text-white">Industrial Training Certificate</h3>
+          <p class="mt-3 text-slate-300">View the full certificate (PDF)</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills-extra" class="py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div data-aos="fade-right" class="space-y-6">
+        <span class="section-label">Soft Skills</span>
+        <h2 class="text-4xl font-bold text-white">Essential Collaboration Skills</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="soft-skill-card">Problem Solving</div>
+          <div class="soft-skill-card">Communication</div>
+          <div class="soft-skill-card">Teamwork</div>
+          <div class="soft-skill-card">Time Management</div>
+          <div class="soft-skill-card">Quick Learning</div>
+          <div class="soft-skill-card">Adaptability</div>
+        </div>
+      </div>
+      <div data-aos="fade-left" class="space-y-6 rounded-[24px] border border-primary/15 bg-primary/8 p-8 shadow-glow backdrop-blur-xl">
+        <span class="section-label">Languages & Hobbies</span>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="language-card">
+            <h3>Languages</h3>
+            <p>English</p>
+            <p>Hindi</p>
+          </div>
+          <div class="language-card">
+            <h3>Hobbies</h3>
+            <p>Coding</p>
+            <p>Reading Technology Blogs</p>
+            <p>Playing Online Games</p>
+            <p>Learning New Technologies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="py-20 bg-slate-950/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="space-y-6 text-center">
+      <span class="section-label">Services</span>
+      <h2 class="text-4xl font-bold text-white">What I Build</h2>
+      <p class="mx-auto max-w-2xl text-slate-400">Custom digital solutions that combine modern design, reusable code, and scalable architecture.</p>
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      <div data-aos="fade-up" class="service-card">Business Websites</div>
+      <div data-aos="fade-up" class="service-card">Portfolio Websites</div>
+      <div data-aos="fade-up" class="service-card">Landing Pages</div>
+      <div data-aos="fade-up" class="service-card">ERP Systems</div>
+      <div data-aos="fade-up" class="service-card">Django Applications</div>
+      <div data-aos="fade-up" class="service-card">Admin Dashboards</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div class="space-y-6">
+        <span class="section-label">Contact</span>
+        <h2 class="text-4xl font-bold text-white">Let&apos;s build something great together</h2>
+        <p class="max-w-xl text-slate-400">Have a project idea or want to collaborate? Send a message and I&apos;ll get back to you as soon as possible.</p>
+        <div class="rounded-[24px] border border-primary/15 bg-slate-950/60 p-8 shadow-glow backdrop-blur-xl">
+          <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Contact Details</p>
+          <div class="mt-6 space-y-4 text-slate-300">
+            <p><strong>Email:</strong> <a href="mailto:vivekray7970@gmail.com" class="text-slate-100 underline">vivekray7970@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+917970936214" class="text-slate-100 underline inline-flex items-center gap-2"><i class="fa-solid fa-phone"></i> +91 7970936214</a></p>
+            <p><strong>Location:</strong> Madhubani, Bihar, India</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-[24px] border border-primary/15 bg-primary/8 p-8 shadow-glow backdrop-blur-xl">
+        <div class="text-slate-300">
+          <p class="text-lg font-medium">Prefer to reach out directly?</p>
+          <p class="mt-4">Use the contact details on the left — email, phone, or WhatsApp — to get in touch. I typically respond within 1–2 business days.</p>
+
+          {% if messages %}
+            <div class="mt-6 space-y-3">
+              {% for message in messages %}
+                <div class="rounded-xl border px-4 py-3 text-sm {% if message.tags == 'error' %}border-red-500/40 bg-red-500/10 text-red-200{% else %}border-emerald-500/40 bg-emerald-500/10 text-emerald-200{% endif %}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <form method="post" class="mt-6 space-y-4" id="contactForm">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+              <div class="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200" role="alert">
+                {{ form.non_field_errors }}
+              </div>
+            {% endif %}
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-slate-200 mb-2">
+                  Name <span class="text-primary">*</span>
+                </label>
+                {{ form.name }}
+                {% if form.name.errors %}<div class="mt-1 text-xs text-red-300" role="alert">{{ form.name.errors|join:', ' }}</div>{% endif %}
+              </div>
+              <div>
+                <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-slate-200 mb-2">
+                  Email <span class="text-primary">*</span>
+                </label>
+                {{ form.email }}
+                {% if form.email.errors %}<div class="mt-1 text-xs text-red-300" role="alert">{{ form.email.errors|join:', ' }}</div>{% endif %}
+              </div>
+            </div>
+
+            <div>
+              <label for="{{ form.subject.id_for_label }}" class="block text-sm font-medium text-slate-200 mb-2">
+                Subject <span class="text-primary">*</span>
+              </label>
+              {{ form.subject }}
+              {% if form.subject.errors %}<div class="mt-1 text-xs text-red-300" role="alert">{{ form.subject.errors|join:', ' }}</div>{% endif %}
+            </div>
+
+            <div>
+              <label for="{{ form.message.id_for_label }}" class="block text-sm font-medium text-slate-200 mb-2">
+                Message <span class="text-primary">*</span>
+              </label>
+              {{ form.message }}
+              {% if form.message.errors %}<div class="mt-1 text-xs text-red-300" role="alert">{{ form.message.errors|join:', ' }}</div>{% endif %}
+            </div>
+
+            <button type="submit" class="button-primary w-full" id="submitBtn" aria-label="Send contact message">
+              <span id="submitText">Send Message</span>
+              <span id="submitLoading" style="display: none;">Sending...</span>
+            </button>
+          </form>
+
+          <script>
+            // Prevent double submission and provide feedback
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+              const btn = document.getElementById('submitBtn');
+              const submitText = document.getElementById('submitText');
+              const submitLoading = document.getElementById('submitLoading');
+              
+              btn.disabled = true;
+              submitText.style.display = 'none';
+              submitLoading.style.display = 'inline';
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
