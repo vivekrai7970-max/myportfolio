@@ -81,6 +81,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise for static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -115,29 +116,39 @@ WSGI_APPLICATION = 'myportfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DB_ENGINE = os.environ.get('DB_ENGINE', 'sqlite3')
+# Support Render's DATABASE_URL for PostgreSQL
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
-if DB_ENGINE == 'djongo':
+if DATABASE_URL:
+    # PostgreSQL on Render
+    import dj_database_url
     DATABASES = {
-        'default': {
-            'ENGINE': 'djongo',
-            'NAME': os.environ.get('DB_NAME', 'portfolio_db'),
-            'ENFORCE_SCHEMA': False,
-            'CLIENT': {
-                'host': os.environ.get('DB_HOST', 'mongodb://127.0.0.1:27017/'),
-                'username': os.environ.get('DB_USER', ''),
-                'password': os.environ.get('DB_PASSWORD', ''),
-                'authSource': os.environ.get('DB_AUTH_SOURCE', 'admin'),
-            },
-        }
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
 else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+    DB_ENGINE = os.environ.get('DB_ENGINE', 'sqlite3')
+    
+    if DB_ENGINE == 'djongo':
+        DATABASES = {
+            'default': {
+                'ENGINE': 'djongo',
+                'NAME': os.environ.get('DB_NAME', 'portfolio_db'),
+                'ENFORCE_SCHEMA': False,
+                'CLIENT': {
+                    'host': os.environ.get('DB_HOST', 'mongodb://127.0.0.1:27017/'),
+                    'username': os.environ.get('DB_USER', ''),
+                    'password': os.environ.get('DB_PASSWORD', ''),
+                    'authSource': os.environ.get('DB_AUTH_SOURCE', 'admin'),
+                },
+            }
         }
-    }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

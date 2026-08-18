@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: myportfolio
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: gunicorn myportfolio.wsgi:application
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        scope: run
+        value: ${DJANGO_SECRET_KEY}
+      - key: DJANGO_DEBUG
+        scope: run
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        scope: run
+        value: ${RENDER_EXTERNAL_HOSTNAME}
+      - key: DATABASE_URL
+        scope: run
+        fromDatabase:
+          name: myportfolio_db
+          property: connectionString
+
+databases:
+  - name: myportfolio_db
+    plan: free
+    region: oregon
