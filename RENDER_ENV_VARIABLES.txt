@@ -1,0 +1,72 @@
+# Render Environment Variables Reference
+# Copy-paste these into Render Dashboard when creating your Web Service
+# DO NOT commit this file to GitHub - it contains sensitive information
+
+# ============================================================
+# CRITICAL - DJANGO CORE SETTINGS
+# ============================================================
+
+DJANGO_SECRET_KEY=fwtsx%99st35la77#mq2o*wgvgt357v@e=6dr$+0qxc!sz4q35
+
+DJANGO_DEBUG=False
+
+# IMPORTANT: Replace with your actual Render service URL
+# Example: myportfolio-abc123.onrender.com
+DJANGO_ALLOWED_HOSTS=myportfolio.onrender.com
+
+# IMPORTANT: Replace with your actual Render service URL (must match DJANGO_ALLOWED_HOSTS)
+# Example: https://myportfolio-abc123.onrender.com
+DJANGO_CSRF_TRUSTED_ORIGINS=https://myportfolio.onrender.com
+
+# ============================================================
+# EMAIL CONFIGURATION
+# ============================================================
+
+# Console backend: emails appear in Render logs (good for testing)
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+
+# For production email (optional - upgrade later):
+# EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+# EMAIL_HOST=smtp.gmail.com
+# EMAIL_PORT=587
+# EMAIL_USE_TLS=True
+# EMAIL_HOST_USER=your-email@gmail.com
+# EMAIL_HOST_PASSWORD=your-app-specific-password
+
+DEFAULT_FROM_EMAIL=no-reply@myportfolio.onrender.com
+
+PORTFOLIO_CONTACT_EMAIL=vivekray7970@gmail.com
+
+# ============================================================
+# DATABASE CONFIGURATION
+# ============================================================
+
+# SQLite (default - works on free tier)
+DB_ENGINE=sqlite3
+
+# To use PostgreSQL (requires paid plan):
+# Remove DB_ENGINE=sqlite3 and instead use DATABASE_URL
+# Render automatically provides DATABASE_URL for PostgreSQL
+
+# ============================================================
+# RATE LIMITING
+# ============================================================
+
+PORTFOLIO_CONTACT_RATE_LIMIT=5/h
+
+# ============================================================
+# OPTIONAL - MONITORING & ERROR TRACKING
+# ============================================================
+
+# For error tracking (optional):
+# SENTRY_DSN=your-sentry-dsn-here
+
+# ============================================================
+# NOTES
+# ============================================================
+# 1. Each environment variable should be added separately in Render Dashboard
+# 2. Click "Add Environment Variable" for each one
+# 3. For scope, select "Run service"
+# 4. Update DJANGO_ALLOWED_HOSTS and DJANGO_CSRF_TRUSTED_ORIGINS with your actual URL
+# 5. Never share your SECRET_KEY publicly
+# 6. Keep EMAIL credentials secure
