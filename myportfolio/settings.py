@@ -194,13 +194,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'no-reply@localhost')
-
-# Portfolio-specific settings
-PORTFOLIO_CONTACT_EMAIL = os.getenv('PORTFOLIO_CONTACT_EMAIL', 'vivekray7970@gmail.com')
-PORTFOLIO_CONTACT_RATE_LIMIT = '5/h'  # 5 messages per hour per IP
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 

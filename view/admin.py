@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Achievement, Certificate, ContactMessage, Education, Profile, Project, Skill
+from .models import Achievement, Certificate, Education, Profile, Project, Skill
 
 
 @admin.register(Profile)
@@ -34,9 +34,3 @@ class AchievementAdmin(admin.ModelAdmin):
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('title', 'institution', 'location', 'year_range')
 
-
-@admin.register(ContactMessage)
-class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'subject', 'created_at', 'email_sent')
-    readonly_fields = ('name', 'email', 'subject', 'message', 'created_at', 'email_sent', 'email_error')
-    ordering = ('-created_at',)

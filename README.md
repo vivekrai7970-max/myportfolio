@@ -30,9 +30,8 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-5. Open the site at `http://127.0.0.1:8000/`, submit the contact form, and check your email inbox.
+5. Open the site at `http://127.0.0.1:8000/`.
 
 ## Notes
 
-- Contact form submissions are saved to the database.
-- The app sends a notification email when contact messages are submitted, if email settings are configured.
+- Contact details are available in the portfolio's Contact section.

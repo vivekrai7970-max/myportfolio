@@ -27,8 +27,6 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-
-
 class Skill(models.Model):
     category = models.CharField(max_length=80)
     name = models.CharField(max_length=80)
@@ -65,24 +63,3 @@ class Education(models.Model):
     def __str__(self):
         return self.title
 
-
-class ContactMessage(models.Model):
-    name = models.CharField(max_length=120)
-    email = models.EmailField(db_index=True)
-    subject = models.CharField(max_length=180)
-    message = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
-    # delivery tracking
-    email_sent = models.BooleanField(default=False, db_index=True)
-    email_error = models.TextField(blank=True, null=True)
-    ip_address = models.GenericIPAddressField(blank=True, null=True)
-
-    class Meta:
-        indexes = [
-            models.Index(fields=['email', '-created_at']),
-            models.Index(fields=['email_sent', '-created_at']),
-        ]
-        ordering = ['-created_at']
-
-    def __str__(self):
-        return f"Message from {self.name} - {self.subject}"

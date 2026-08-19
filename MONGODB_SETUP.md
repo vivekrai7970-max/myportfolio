@@ -103,13 +103,6 @@ DB_ENGINE=sqlite3
 | Flexibility | Rigid Schema | Flexible Schema |
 | Production Ready | ✓ | ✓ |
 
-## Contact Form with MongoDB
-The contact form works the same with MongoDB:
-1. Submit form on `/portfolio/#contact`
-2. ContactMessage is stored in MongoDB collection
-3. Email is sent via configured email backend
-4. View messages in Django Admin
-
 ## Next Steps
 - Development: Use SQLite (default, no setup needed)
 - Production: Migrate to MongoDB Atlas for better scalability
