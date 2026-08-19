@@ -11,20 +11,32 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
+from importlib import import_module
 from pathlib import Path
+
+from django.core.exceptions import ImproperlyConfigured
 
 # Optionally load environment variables from a .env file for local development
 try:
     from dotenv import load_dotenv
-    env_path = Path(__file__).resolve().parent.parent / '.env'
-    if env_path.exists():
-        load_dotenv(env_path)
-except Exception:
-    # dotenv is optional in production; missing package will be installed via requirements
-    pass
+except ImportError:
+    load_dotenv = None
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+if load_dotenv:
+    load_dotenv(BASE_DIR / '.env')
+
+
+def env_bool(name, default=False):
+    """Read a boolean environment variable consistently."""
+    return os.getenv(name, str(default)).strip().lower() in {'1', 'true', 'yes', 'on'}
+
+
+def env_list(name, default=''):
+    """Read a comma-separated environment variable without empty values."""
+    return [value.strip() for value in os.getenv(name, default).split(',') if value.strip()]
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,21 +45,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
     'DJANGO_SECRET_KEY',
-    'dev-secret-key-change-me-in-production'
-)
+    'django-development-key-do-not-use-in-production-8f2c4d6a1b9e7f3c'
+).strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG', 'False').strip().lower() in {'1', 'true', 'yes', 'on'}
+DEBUG = env_bool('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = [
-    host.strip() for host in os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver').split(',')
-    if host.strip()
-]
+if not DEBUG and len(SECRET_KEY) < 50:
+    raise ImproperlyConfigured(
+        'DJANGO_SECRET_KEY must contain at least 50 characters when DJANGO_DEBUG=False.'
+    )
 
-CSRF_TRUSTED_ORIGINS = [
-    origin.strip() for origin in os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000').split(',')
-    if origin.strip()
-]
+ALLOWED_HOSTS = env_list('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver')
+
+CSRF_TRUSTED_ORIGINS = env_list(
+    'DJANGO_CSRF_TRUSTED_ORIGINS',
+    'http://localhost:8000,http://127.0.0.1:8000',
+)
 
 # Security Headers
 if DEBUG:
@@ -66,6 +80,7 @@ else:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 X_FRAME_OPTIONS = 'DENY'
 SECURE_BROWSER_XSS_FILTER = True
@@ -132,13 +147,13 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if DATABASE_URL:
     # PostgreSQL on Render
-    import dj_database_url
+    dj_database_url = import_module('dj_database_url')
     DATABASES = {
         'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
 else:
-    DB_ENGINE = os.environ.get('DB_ENGINE', 'sqlite3')
-    
+    DB_ENGINE = os.getenv('DB_ENGINE', 'sqlite3').strip().lower()
+
     if DB_ENGINE == 'djongo':
         DATABASES = {
             'default': {
@@ -163,7 +178,7 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
