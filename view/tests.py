@@ -16,6 +16,8 @@ class PortfolioRoutesTests(TestCase):
         response = self.client.get('/', secure=True)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Scroll to view more')
+        self.assertContains(response, 'href="/portfolio/#projects"')
+        self.assertContains(response, 'href="/portfolio/#contact"')
 
     @override_settings(DEBUG=True)
     def test_portfolio_page_accessible_at_portfolio_route(self):
