@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Django: development server (HTTP)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "127.0.0.1:8000"
+            ],
+            "django": true,
+            "envFile": "${workspaceFolder}/.env",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "Starting development server at http://\\S+",
+                "uriFormat": "http://127.0.0.1:8000/"
+            }
+        }
+    ]
+}

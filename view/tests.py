@@ -12,7 +12,7 @@ class PortfolioRoutesTests(TestCase):
 
     @override_settings(DEBUG=True)
     def test_home_page_is_animation_showcase(self):
-        """Root route now loads the animation showcase page."""
+        """Root route loads the animation showcase page."""
         response = self.client.get('/', secure=True)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Scroll to view more')

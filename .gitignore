@@ -39,7 +39,9 @@ db.sqlite3-journal
 *.db
 
 # IDE
-.vscode/
+.vscode/*
+!.vscode/
+!.vscode/launch.json
 .idea/
 *.swp
 *.swo
