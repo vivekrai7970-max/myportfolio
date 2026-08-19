@@ -56,7 +56,10 @@ if not DEBUG and len(SECRET_KEY) < 50:
         'DJANGO_SECRET_KEY must contain at least 50 characters when DJANGO_DEBUG=False.'
     )
 
-ALLOWED_HOSTS = env_list('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver')
+ALLOWED_HOSTS = env_list('DJANGO_ALLOWED_HOSTS', '')
+for local_host in ('localhost', '127.0.0.1', 'testserver'):
+    if local_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(local_host)
 RENDER_EXTERNAL_HOSTNAME = os.getenv('RENDER_EXTERNAL_HOSTNAME', '').strip()
 if RENDER_EXTERNAL_HOSTNAME and RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
